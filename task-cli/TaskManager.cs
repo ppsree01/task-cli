@@ -3,7 +3,8 @@ internal static class TaskManager
     public static List<Task> tasks = new List<Task>();
     public static void LoadTasks()
     {
-        
+        FileManager.CreateFileIfNotExist();
+        tasks = FileManager.ReadData();
     }
 
     // Add a new item to list
@@ -15,7 +16,7 @@ internal static class TaskManager
             if (item.Trim() == "") throw new Exception("New item cannot be empty"); 
             if (tasks.Count > 0)
             {
-                id = tasks.OrderBy(x => x.id).ToList().First().id;
+                id = tasks.OrderByDescending(x => x.id).ToList().First().id;
             }
 
             tasks.Add(new Task
@@ -24,6 +25,8 @@ internal static class TaskManager
                 item = item,
                 status = Status.TODO
             });
+
+            FileManager.WriteData(tasks);
 
             Message.Format($"Task added successfully (ID: {id})", MessageType.Info);
         }
@@ -45,6 +48,7 @@ internal static class TaskManager
                     if (task.id == id) task.item = item;
                 }
             }
+            FileManager.WriteData(tasks);
         }
         catch(Exception ex) {
             Message.Format(ex.Message, MessageType.Error);
@@ -61,6 +65,7 @@ internal static class TaskManager
                 int index = tasks.FindIndex(x => x.id == id);
                 tasks.RemoveAt(index);
             }
+            FileManager.WriteData(tasks);
         }
         catch(Exception ex) {
             Message.Format(ex.Message, MessageType.Error);
