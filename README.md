@@ -31,4 +31,10 @@ dotnet run -- list
 dotnet run -- list done
 dotnet run -- list todo
 dotnet run -- list in-progress
+
+
+# To run commands using dll, 
+# navigate to /bin/Debug/net8.0
+dotnet task-cli.dll list
+
 ```
