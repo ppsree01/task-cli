@@ -1,0 +1,15 @@
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/bin/Debug/net8.0/task-cli
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/bin/Debug/net8.0/task-cli.deps.json
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/bin/Debug/net8.0/task-cli.runtimeconfig.json
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/bin/Debug/net8.0/task-cli.dll
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/bin/Debug/net8.0/task-cli.pdb
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.AssemblyInfoInputs.cache
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.AssemblyInfo.cs
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.csproj.CoreCompileInputs.cache
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.sourcelink.json
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.dll
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/refint/task-cli.dll
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.pdb
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/task-cli.genruntimeconfig.cache
+/Users/sreelakshmi/2025/roadmap/csharp/taskcli/task-cli/obj/Debug/net8.0/ref/task-cli.dll

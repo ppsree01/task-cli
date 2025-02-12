@@ -5,7 +5,7 @@ public enum MessageType {
 }
 internal static class Message {
 
-    public static void Format(string msg, MessageType msgType) {
+    public static void Format(string msg, MessageType msgType = MessageType.Info) {
         switch(msgType) {
             case MessageType.Error :
                 msg = $"Error: {msg}";
