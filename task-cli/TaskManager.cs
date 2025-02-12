@@ -18,6 +18,7 @@ internal static class TaskManager
             {
                 id = tasks.OrderByDescending(x => x.id).ToList().First().id;
             }
+            id += 1;
 
             tasks.Add(new Task
             {
@@ -36,6 +37,25 @@ internal static class TaskManager
         }
     }
 
+    public static void UpdateStatus(int id, Status status) {
+        try {
+            bool exists = tasks.FindAll(x => x.id == id).Count > 0;
+
+            if (!exists) throw new Exception($"ID: {id} does not exist");
+            else {
+                foreach(var task in tasks) {
+                    if (task.id == id) {
+                        task.status = status;
+                    }
+                }
+            }
+            FileManager.WriteData(tasks);
+        }
+        catch(Exception ex) {
+            Message.Format(ex.Message, MessageType.Error);
+        }
+    }
+
     // Update a task if it exists
     public static void UpdateTask(int id, string item)
     {
@@ -45,7 +65,9 @@ internal static class TaskManager
             if (!exists) throw new Exception($"ID: {id} does not exist");
             else {
                 foreach(var task in tasks) {
-                    if (task.id == id) task.item = item;
+                    if (task.id == id) {
+                        task.item = item;
+                    }
                 }
             }
             FileManager.WriteData(tasks);
@@ -73,15 +95,26 @@ internal static class TaskManager
     }
 
     // List all tasks or by status
-    public static List<Task> ListTasks(Status? status)
+    public static void ListTasks(Status? status)
     {
+        var subTasks = new List<Task>();
         if (status == null)
         {
-            return tasks;
+            subTasks = tasks;
         }
         else
         {
-            return tasks.Where(x => x.status == status).ToList();
+            subTasks = tasks.Where(x => x.status == status).ToList();
+        }
+
+        if (tasks.Count == 0) {
+            Message.Format("No tasks stored in file");
+            return;
+        }
+
+        Message.Format("Please see below tasks stored:");
+        foreach(var item in subTasks) {
+            Console.WriteLine($"{item.id}\t{item.item}\t{item.status}");
         }
     }
 }
