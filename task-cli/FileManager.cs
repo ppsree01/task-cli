@@ -1,5 +1,6 @@
 using System.IO;
 using System.Text.Json;
+using System.Text.Json.Serialization;
 
 internal static class FileManager {
 
@@ -10,9 +11,9 @@ internal static class FileManager {
         bool dataDumpExists = File.Exists(path); 
 
         if (!dataDumpExists) {
-            File.Create(path);
+            File.Create(path).Close();
+            WriteData(new List<Task>());
         }
-        WriteData(new List<Task>());
     }
 
     public static List<Task> ReadData() {
@@ -20,11 +21,14 @@ internal static class FileManager {
 
         using (StreamReader sr = new StreamReader(path)) {
             string json = sr.ReadToEnd();
-            if (json == null) {
+            if (json == null || json == "[]") {
                 return tasks;
             }
-            tasks = JsonSerializer.Deserialize<List<Task>>(json);
-        }
+            var items = JsonSerializer.Deserialize<List<Task>>(json == "" ? "[]" : json);
+            foreach(var item in items) {
+                tasks.Add(item);
+            }
+        } 
         return tasks;
     }
 
